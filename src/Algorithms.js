@@ -238,7 +238,63 @@ const selectionsort = values => {
 }
 
 const insertionsort = values => {
-    console.log('insertion')
+    const bars = document.getElementsByClassName('bar');
+    console.log('vals:',values);
+    const sorted = []
+
+    sorted.push(values[0]);
+    setTimeout(() => {
+        bars[0].style.backgroundColor = 'grey'
+    })
+
+    for(let i = 0; i < values.length; i++) {
+        let temp = values[i];
+        let j = i -1
+
+        setTimeout(function(i) {
+            const index = i
+         
+            bars[index].style.backgroundColor = 'red';
+        }.bind(null, i), i * 10)
+
+        while(j >= 0 && values[j] > temp) {
+            setTimeout(function(j) {
+                const index = j
+                
+                bars[index].style.backgroundColor = 'blue';
+            }.bind(null, j), i * 10)
+
+            values[j + 1] = values[j]
+
+            setTimeout(function(j) {
+                const index = j
+
+                bars[index].style.backgroundColor = 'grey';
+                bars[j + 1].style.height = bars[j].style.height;
+            }.bind(null, j), i * 10)
+
+            j--
+        }
+
+        setTimeout(function(i) {
+            const index = i
+
+            bars[index].style.backgroundColor = 'grey';
+            bars[j + 1].style.height = `${temp}px`;
+
+            if(i === values.length-1) {
+                for(let k = 0; k < values.length; k++) {
+                    setTimeout(() => {
+                        bars[k].style.backgroundColor = 'green'
+                    }, k * 5);
+                }
+            }
+        }.bind(null, i), i * 10)
+
+
+        values[j + 1] = temp;
+    }
+    return [ ...values ]
 }
 
 const quicksort = values => {

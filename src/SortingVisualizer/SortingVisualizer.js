@@ -11,6 +11,17 @@ const SortingVisualizer = () => {
         return Math.floor( Math.random() * (max - min + 1) + min )
     }
 
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+
     /* Generate 100 New Integars For Array */
     const resetArray = () => {
         const values = []
@@ -20,11 +31,13 @@ const SortingVisualizer = () => {
             bars[i].style.backgroundColor = 'darkslategrey';
         }
 
-        for( let i = 0; i < 120; i++ ) {
-            values.push(randomIntFromInterval(5, 550));
+        for( let i = 5; i < 256; i++ ) {
+            values.push(i);
         }
 
-        setArray(values);
+        const shuffled = shuffle(values)
+
+        setArray(shuffled);
     }
 
     useEffect(() => {
