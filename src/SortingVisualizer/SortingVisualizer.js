@@ -31,7 +31,7 @@ const SortingVisualizer = () => {
             bars[i].style.backgroundColor = 'darkslategrey';
         }
 
-        for( let i = 5; i < 256; i++ ) {
+        for( let i = 1; i < 351; i++ ) {
             values.push(i);
         }
 

@@ -195,30 +195,30 @@ const selectionsort = values => {
         }, i * 10)
 
         for(let j = i+1; j < values.length; j++) {
-            setTimeout(() => {
+            setTimeout(function(j) {
                 bars[j].style.backgroundColor = 'blue';
-            }, j * 10)
+            }.bind(null, j), j * 10)
 
             if( values[j] < values[smallest]) {
                 const old_smallest = smallest;
                 smallest = j
 
-                setTimeout(() => {
+                setTimeout(function(j) {
                     bars[old_smallest].style.backgroundColor = 'grey';
                     bars[smallest].style.backgroundColor = 'green';
-                }, j * 10 + 10)
+                }.bind(null, j), j * 10 + 10)
             }
 
-            setTimeout(() => {
+            setTimeout(function(j) {
                 bars[j].style.backgroundColor = 'grey'
-            }, j * 10 + 20);
+            }.bind(null, j), j * 10 + 20);
         }
 
         const temp = values[i]
         values[i] = values[smallest];
         values[smallest] = temp;
 
-        setTimeout(() => {
+        setTimeout(function(i) {
             const temp_height = bars[i].style.height;
         
             bars[i].style.height = bars[smallest].style.height;
@@ -233,7 +233,7 @@ const selectionsort = values => {
                     }, j * 10);
                 }
             }
-        }, i * 10 + 10)
+        }.bind(null, i), i * 10 + 10)
     }
 }
 
