@@ -1,5 +1,7 @@
 import React,  { useState } from 'react';
-import { Node, DLL } from '../DataStructures';
+import { DLL } from '../DataStructures';
+
+import './LinkedList.css';
 
 const LinkedList = () => {
     const [ list, setList ] = useState([]);
@@ -37,18 +39,28 @@ const LinkedList = () => {
         <>
             <div className="list">
                 {
-                  list 
+                  list.map((value, index) => {
+                      return(
+                          <div className='node'>
+                              {
+                                  index === list.length - 1 ? null : <span id="arrow"><i class="fas fa-exchange-alt"></i></span>
+                              }
+  
+                              {value}
+                          </div>
+                      )
+                  })
                 }
-                
-                <input type='text' placeholder='value...'onChange={e => onChangeHandler(e)} />
-                <button onClick={() => addValueHead(value)}>Add To Head</button>
-                <button onClick={() => addValueTail(value)}>Add To Tail</button>
-                <button onClick={removeValueHead}>Remove From Head</button>
-                <button onClick={removeValueTail}>Remove From Tail</button>
             </div>
-            {/* <ControlPanel reset={resetArray} 
-                          values={array}
-            /> */}
+            <div className='controls'>
+                <input id="list-input" type='text' placeholder='add value...'onChange={e => onChangeHandler(e)} />
+                <div>
+                    <button className='btn' onClick={() => addValueHead(value)}>Add Head</button>
+                    <button className='btn' onClick={() => addValueTail(value)}>Add Tail</button>
+                    <button className='btn' onClick={removeValueHead}>Remove Head</button>
+                    <button className='btn' onClick={removeValueTail}>Remove Tail</button>
+                </div>
+            </div>
         </>
     )
 }

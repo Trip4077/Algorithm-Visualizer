@@ -1,0 +1,64 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.node {
+    border-radius: 50%;
+    background-color: rgba(0, 255, 51);
+
+    height: 150px;
+    width: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: 1px;
+
+    position: relative;
+    margin-right: 110px;
+}
+
+#arrow {
+    width: 100%;
+    display: block;
+
+    color: rgba(0, 255, 51);
+
+    position: absolute; 
+    top: 40px;
+    right: -175px;
+    font-size: 48px;
+    border-radius: 50%;
+}
+
+#list-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 255, 51);
+
+    padding: 10px;
+    color: rgba(0, 255, 51);
+    font-size: 18px;
+}
+
+#list-input:focus {
+    outline: none;
+}
+
+@media(max-width: 650px) {
+    .node {
+        font-size: 32px;
+        height: 75px;
+        width: 75px;
+    }
+
+    #arrow {
+        top: 0px;
+        right: -100px;
+    }
+}
