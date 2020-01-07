@@ -46,6 +46,7 @@ const SortingVisualizer = () => {
 
     return(
         <>
+            <h2 style={{ textAlign: "center", fontSize: "36px", margin: "0", marginBottom: "10px" }}> Select A Sorting Aglorithm To See It Sort The Data </h2>
             <div className="chart">
                 {
                     array.map((value, index) => {

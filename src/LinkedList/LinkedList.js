@@ -37,6 +37,7 @@ const LinkedList = () => {
 
     return(
         <>
+            <h2 style={{ textAlign: "center", fontSize: "36px", margin: "0", marginBottom: "10px" }}> Select A List Structure And Add Data </h2>
             <div className="list">
                 {
                   list.map((value, index) => {
