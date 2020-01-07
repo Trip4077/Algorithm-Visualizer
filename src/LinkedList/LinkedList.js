@@ -5,7 +5,7 @@ import './LinkedList.css';
 
 const LinkedList = () => {
     const [ list, setList ] = useState([]);
-    const [ render, causeRender ] = useState(0);
+    const [ structure, setStructures ] = useState('double');
     const [ value, setValue ] =  useState('');
 
 
@@ -40,25 +40,81 @@ const LinkedList = () => {
             <div className="list">
                 {
                   list.map((value, index) => {
-                      return(
-                          <div className='node'>
-                              {
-                                  index === list.length - 1 ? null : <span id="arrow"><i class="fas fa-exchange-alt"></i></span>
-                              }
-  
-                              {value}
-                          </div>
-                      )
-                  })
-                }
+
+                    switch(structure) {
+                        case "double":
+                            return (
+                                <div className='node'>
+                                    {
+                                        index === list.length - 1 ? null : <span id="arrow"><i class="fas fa-exchange-alt"></i></span>
+                                    }
+        
+                                    {value}
+                                </div>
+                            )
+                            break;
+
+                        case "single":
+                        case "queue":
+                        case "stack":
+                            return (
+                                <div className='node'>
+                                    {
+                                        index === list.length - 1 ? null : <span id="arrow"><i class="fas fa-long-arrow-alt-right"></i></span>
+                                    }
+        
+                                    {value}
+                                </div>
+                            )
+                    }
+                  }
+                )
+            }
             </div>
             <div className='controls'>
                 <input id="list-input" type='text' placeholder='add value...'onChange={e => onChangeHandler(e)} />
+                <select onChange={e =>{ e.preventDefault(); setStructures(e.target.value) }}>
+                    <option value="double">Double Linked List</option>
+                    <option value="single">Single Linked List</option>
+                    <option value="stack">Stack</option>
+                    <option value="queue">Queue</option>
+                </select>
                 <div>
-                    <button className='btn' onClick={() => addValueHead(value)}>Add Head</button>
-                    <button className='btn' onClick={() => addValueTail(value)}>Add Tail</button>
-                    <button className='btn' onClick={removeValueHead}>Remove Head</button>
-                    <button className='btn' onClick={removeValueTail}>Remove Tail</button>
+                    {
+                        (() => {
+                            switch(structure) {
+                                case "single":
+                                case "double":
+                                    return (
+                                        <>
+                                        <button className='btn' onClick={() => addValueHead(value)}>Add Head</button>
+                                        <button className='btn' onClick={() => addValueTail(value)}>Add Tail</button>
+                                        <button className='btn' onClick={removeValueHead}>Remove Head</button>
+                                        <button className='btn' onClick={removeValueTail}>Remove Tail</button>
+                                        </>
+                                    )
+                                    break;
+
+                                case "queue":
+                                    return (
+                                        <>
+                                        <button className='btn' onClick={() => addValueTail(value)}>Enqueue</button>
+                                        <button className='btn' onClick={removeValueHead}>Dequeue</button>
+                                        </>
+                                    )
+                                    break;
+                
+                                case "stack":
+                                    return (
+                                        <>
+                                        <button className='btn' onClick={() => addValueHead(value)}>Push</button>
+                                        <button className='btn' onClick={removeValueHead}>Pop</button>
+                                        </>
+                                    )
+                                    break;
+                            }
+                        })()
+                    }
                 </div>
             </div>
         </>
