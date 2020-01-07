@@ -5,7 +5,7 @@ import './Nav.css';
 
 export default () => (
     <nav>
-        <Link to='sorting'>Sorting Algorithms</Link>
-        <Link to='linked-lists'>Linked Lists</Link>
+        <Link to='/'>Sorting Algorithms</Link>
+        <Link to='/linked-lists'>Linked Lists</Link>
     </nav>
 );

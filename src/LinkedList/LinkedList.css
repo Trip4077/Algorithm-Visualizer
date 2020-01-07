@@ -23,6 +23,40 @@
     margin-right: 110px;
 }
 
+.structure-select {
+    display: flex;
+    align-items: center;
+
+    padding: 20px;
+    width: 100%;
+}
+
+.structure-select input {
+    margin-right: 100px;
+}
+
+.structure-select select {
+    background-color: transparent;
+    border: 1px solid rgba(0, 255, 51);
+    color: rgba(0, 255, 51);
+
+    padding: 10px;
+    font-size: 18px;
+}
+
+.structure-select select:focus {
+    outline: none;
+}
+
+.structure-select select option {
+    background-color: rgba(40, 40, 40, 1);
+    border: 1px solid rgba(0, 255, 51);
+}
+
+.structure-select select option:focus {
+    outline: none;
+}
+
 #arrow {
     width: 100%;
     display: block;

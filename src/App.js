@@ -11,7 +11,7 @@ const App = () => {
   return(
     <div className="app">
       <Nav />
-      <Route path='/sorting' component={SortingVisualizer} />
+      <Route exact path='/' component={SortingVisualizer} />
       <Route path='/linked-lists' component={LinkedList} />
     </div>
   )

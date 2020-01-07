@@ -72,13 +72,15 @@ const LinkedList = () => {
             }
             </div>
             <div className='controls'>
-                <input id="list-input" type='text' placeholder='add value...'onChange={e => onChangeHandler(e)} />
-                <select onChange={e =>{ e.preventDefault(); setStructures(e.target.value) }}>
-                    <option value="double">Double Linked List</option>
-                    <option value="single">Single Linked List</option>
-                    <option value="stack">Stack</option>
-                    <option value="queue">Queue</option>
-                </select>
+                <div class="structure-select">
+                    <input id="list-input" type='text' placeholder='add value...'onChange={e => onChangeHandler(e)} />
+                    <select onChange={e =>{ e.preventDefault(); setStructures(e.target.value) }}>
+                        <option value="double">Double Linked List</option>
+                        <option value="single">Single Linked List</option>
+                        <option value="stack">Stack</option>
+                        <option value="queue">Queue</option>
+                    </select>
+                </div>
                 <div>
                     {
                         (() => {
